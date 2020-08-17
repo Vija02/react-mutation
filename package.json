@@ -2,6 +2,10 @@
   "name": "react-mutation",
   "version": "1.0.0",
   "description": "useMutation hook for React and React Native. Tailored for thorough response handling.",
+  "author": "Vija02",
+  "license": "MIT",
+  "repository": "vija02/react-mutation",
+  "homepage": "https://github.com/vija02/react-mutation",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,8 +24,6 @@
   "files": [
     "dist"
   ],
-  "author": "Vija02",
-  "license": "MIT",
   "peerDependencies": {
     "react": "^16.8.0"
   },
