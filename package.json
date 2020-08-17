@@ -8,7 +8,7 @@
   "unpkg": "dist/index.umd.js",
   "scripts": {
     "build": "microbundle",
-    "release": "npm run build && np"
+    "release": "npm run build && np --no-tests"
   },
   "keywords": [
     "react",
