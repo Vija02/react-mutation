@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { MutationParamConfig, MutationReturnFunction, MutationReturnConfig, MutationReturn } from "./types"
 
-function useMutation<TResult, TVariables>(mutationFn: (variables: TVariables) => Promise<TResult>, config?: MutationParamConfig<TVariables>): MutationReturn<TResult, TVariables> {
+function useMutation<TResult = any, TVariables = any>(mutationFn: (variables: TVariables) => Promise<TResult>, config?: MutationParamConfig<TVariables>): MutationReturn<TResult, TVariables> {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<any | null>(null)
 
