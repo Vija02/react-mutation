@@ -1,0 +1,29 @@
+{
+  "name": "react-mutation",
+  "version": "0.1.0",
+  "description": "Simple React hook for mutation",
+  "source": "src/index.ts",
+  "main": "dist/index.ts",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
+  "scripts": {
+    "build": "microbundle"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "mutation",
+    "react-native"
+  ],
+  "author": "Vija02",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8",
+    "microbundle": "^0.12.3",
+    "typescript": "^3.9.7"
+  }
+}
