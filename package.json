@@ -1,6 +1,6 @@
 {
   "name": "react-mutation",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Simple React hook for mutation",
   "source": "src/index.ts",
   "main": "dist/index.js",
