@@ -1,7 +1,7 @@
 {
   "name": "react-mutation",
   "version": "0.1.6",
-  "description": "Simple React hook for mutation",
+  "description": "useMutation hook for React and React Native. Tailored for thorough response handling.",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
