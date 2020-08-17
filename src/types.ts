@@ -12,7 +12,7 @@ export type MutationReturn<TResult, TVariables> = [
   MutationReturnConfig
 ]
 
-export type MutationReturnFunction<TResult, TVariables> = (props: TVariables, chain?: ChainPromise<TResult>, overrideConfig?: MutationParamConfig<TVariables>) => Promise<TResult>
+export type MutationReturnFunction<TResult, TVariables> = (props: TVariables, chain?: ChainPromise<TResult, any>, overrideConfig?: MutationParamConfig<TVariables>) => Promise<TResult>
 export type MutationReturnConfig = {
   // True if query is loading
   isLoading: boolean
