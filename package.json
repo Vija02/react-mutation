@@ -1,6 +1,6 @@
 {
   "name": "react-mutation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple React hook for mutation",
   "source": "src/index.ts",
   "main": "dist/index.ts",
@@ -16,7 +16,9 @@
     "mutation",
     "react-native"
   ],
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "author": "Vija02",
   "license": "MIT",
   "peerDependencies": {
