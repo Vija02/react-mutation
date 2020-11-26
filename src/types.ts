@@ -1,4 +1,7 @@
-export type ChainPromise<TResult, TNewResult = TResult> = (chain: Promise<TResult>) => Promise<TNewResult>
+export type ChainPromise<TResult, TVariables = any, TNewResult = TResult> = (
+  chain: Promise<TResult>,
+  variables: TVariables,
+) => Promise<TNewResult>
 
 export type MutationParamConfig<TVariables> = {
   // Called when query is called
@@ -9,10 +12,14 @@ export type MutationParamConfig<TVariables> = {
 
 export type MutationReturn<TResult, TVariables> = [
   MutationReturnFunction<TResult, TVariables>,
-  MutationReturnConfig
+  MutationReturnConfig,
 ]
 
-export type MutationReturnFunction<TResult, TVariables> = (props: TVariables, chain?: ChainPromise<TResult, any>, overrideConfig?: MutationParamConfig<TVariables>) => Promise<TResult>
+export type MutationReturnFunction<TResult, TVariables> = (
+  props: TVariables,
+  chain?: ChainPromise<TResult, TVariables>,
+  overrideConfig?: MutationParamConfig<TVariables>,
+) => Promise<TResult>
 export type MutationReturnConfig = {
   // True if query is loading
   isLoading: boolean

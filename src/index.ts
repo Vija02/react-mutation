@@ -1,22 +1,34 @@
 import { useState } from "react"
-import { MutationParamConfig, MutationReturnFunction, MutationReturnConfig, MutationReturn } from "./types"
+import {
+  MutationParamConfig,
+  MutationReturnFunction,
+  MutationReturnConfig,
+  MutationReturn,
+} from "./types"
 
-function useMutation<TResult = any, TVariables = any>(mutationFn: (variables: TVariables) => Promise<TResult>, config?: MutationParamConfig<TVariables>): MutationReturn<TResult, TVariables> {
+function useMutation<TResult = any, TVariables = any>(
+  mutationFn: (variables: TVariables) => Promise<TResult>,
+  config?: MutationParamConfig<TVariables>,
+): MutationReturn<TResult, TVariables> {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<any | null>(null)
 
-  const returnFunction: MutationReturnFunction<TResult, TVariables> = (variables, chain = x => x, overrideConfig = {}) => {
+  const returnFunction: MutationReturnFunction<TResult, TVariables> = (
+    variables,
+    chain = (x) => x,
+    overrideConfig = {},
+  ) => {
     setIsLoading(true)
     setError(null)
 
     const configToUse = {
       ...config,
-      ...overrideConfig
+      ...overrideConfig,
     }
 
     configToUse?.onMutate && configToUse?.onMutate(variables)
 
-    const chainCalls = chain(mutationFn(variables))
+    const chainCalls = chain(mutationFn(variables), variables)
       .then((res) => {
         setIsLoading(false)
         return res
@@ -28,7 +40,7 @@ function useMutation<TResult = any, TVariables = any>(mutationFn: (variables: TV
       })
 
     if (configToUse?.chainSettle) {
-      return configToUse.chainSettle(chainCalls)
+      return configToUse.chainSettle(chainCalls, variables)
     }
 
     return chainCalls
@@ -37,7 +49,7 @@ function useMutation<TResult = any, TVariables = any>(mutationFn: (variables: TV
   const returnConfig: MutationReturnConfig = {
     isLoading,
     error,
-    reset: () => setError(null)
+    reset: () => setError(null),
   }
 
   return [returnFunction, returnConfig]

@@ -85,7 +85,7 @@ I don't recommend returning/throwing an error past "global" unless you know what
 #### `onMutate: (variables: TVariables) => void`
 - Called immediately after mutate function is called
 - This can be used for optimistic updates
-#### `chainSettle: (chain: Promise) => Promise`
+#### `chainSettle: (chain: Promise, variables: TVariables) => Promise`
 - Will be chained AFTER local
 - Normally only used to `.catch`
 - Example usage: `chainSettle: (chain) => chain.catch(e => console.error(e))`
@@ -110,7 +110,7 @@ const [mutate] = useMutation(...)
 mutate(variables)
 ```
 
-#### `chain?: (chain: Promise) => Promise`
+#### `chain?: (chain: Promise, variables: TVariables) => Promise`
 - Will be chained AFTER query and BEFORE "global"
 - Example usage: 
 ```ts
